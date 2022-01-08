@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>光之旋律</title>
   
-  <subtitle>The Light Rhythm MC Server</subtitle>
+  <subtitle>Light Rhythm</subtitle>
   <link href="http://39.105.168.193/atom.xml" rel="self"/>
   
   <link href="http://39.105.168.193/"/>
@@ -10,7 +10,7 @@
   <id>http://39.105.168.193/</id>
   
   <author>
-    <name>LR_Nick</name>
+    <name>Tidal_Rui&amp;Pygmalion_Feng</name>
     
   </author>
   
