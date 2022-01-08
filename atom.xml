@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Hexo</title>
+  <title>光之旋律</title>
   
-  
+  <subtitle>The Light Rhythm MC Server</subtitle>
   <link href="http://39.105.168.193/atom.xml" rel="self"/>
   
   <link href="http://39.105.168.193/"/>
