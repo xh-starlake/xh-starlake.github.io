@@ -2,16 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://39.105.168.193/2022/01/09/ZM1/</loc>
+    <loc>http://39.105.168.193/2022/01/15/3ZM-Start/</loc>
     
-    <lastmod>2022-01-16</lastmod>
+    <lastmod>2022-01-18</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://39.105.168.193/2022/01/15/3ZM-Start/</loc>
+    <loc>http://39.105.168.193/2022/01/09/ZM1/</loc>
     
     <lastmod>2022-01-16</lastmod>
     
@@ -85,14 +85,14 @@
 
   
   <url>
-    <loc>http://39.105.168.193/categories/%E5%85%AC%E5%91%8A/</loc>
+    <loc>http://39.105.168.193/categories/%E6%B4%BB%E5%8A%A8/</loc>
     <lastmod>2022-01-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://39.105.168.193/categories/%E6%B4%BB%E5%8A%A8/</loc>
+    <loc>http://39.105.168.193/categories/%E5%85%AC%E5%91%8A/</loc>
     <lastmod>2022-01-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
