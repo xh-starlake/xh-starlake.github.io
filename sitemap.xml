@@ -76,7 +76,7 @@
 
   <url>
     <loc>http://39.105.168.193/</loc>
-    <lastmod>2022-01-16</lastmod>
+    <lastmod>2022-01-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -85,22 +85,22 @@
 
   
   <url>
-    <loc>http://39.105.168.193/categories/%E5%91%A8%E7%9B%AE%E4%BB%8B%E7%BB%8D/</loc>
-    <lastmod>2022-01-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://39.105.168.193/categories/%E6%B4%BB%E5%8A%A8/</loc>
-    <lastmod>2022-01-16</lastmod>
+    <lastmod>2022-01-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://39.105.168.193/categories/%E5%85%AC%E5%91%8A/</loc>
-    <lastmod>2022-01-16</lastmod>
+    <lastmod>2022-01-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://39.105.168.193/categories/%E5%91%A8%E7%9B%AE%E4%BB%8B%E7%BB%8D/</loc>
+    <lastmod>2022-01-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
