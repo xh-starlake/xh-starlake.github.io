@@ -16,9 +16,35 @@
         }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            background-color: #f7f9fe;
+            /* 方法1：添加轻微纹理的暖黄色背景 */
+            background-color: #fff9e6;
+            background-image: radial-gradient(#ffeb99 1px, transparent 0);
+            background-size: 25px 25px;
+            /* 方法2：使用更丰富的渐变 */
+            /* background: linear-gradient(120deg, #fff9e6 0%, #ffe8b3 25%, #fff9e6 50%, #ffe8b3 75%, #fff9e6 100%); */
             color: #34495e;
             line-height: 1.6;
+        }
+        /* 添加一个装饰性的施工元素（可选） */
+        body::before {
+            content: "🚧";
+            position: fixed;
+            font-size: 8rem;
+            opacity: 0.05;
+            top: 20%;
+            left: 10%;
+            transform: rotate(-15deg);
+            z-index: -1;
+        }
+        body::after {
+            content: "🏗️";
+            position: fixed;
+            font-size: 8rem;
+            opacity: 0.05;
+            bottom: 20%;
+            right: 10%;
+            transform: rotate(15deg);
+            z-index: -1;
         }
         /* 维护页面容器 */
         .maintenance-container {
