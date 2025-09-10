@@ -64,6 +64,9 @@
         /* 维护信息 */
         .maintenance-info {
             max-width: 600px;
+            /* 确保内容居中 */
+            margin: 0 auto;
+            text-align: center;
         }
         .maintenance-title {
             font-size: 2rem;
@@ -77,12 +80,11 @@
         }
         /* 新的施工场景动画 */
         .construction-scene {
-            width: 160px; /* 增加宽度，确保能容纳所有元素 */
-            height: 160px;
+            /* 移除固定宽度，让它根据内容自适应 */
+            display: inline-block;
             position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            /* 确保施工场景在文字下方居中 */
+            margin: 0 auto;
         }
         /* 施工标志 */
         .construction-sign {
@@ -109,22 +111,25 @@
         }
         .tool-hammer {
             top: -20px;
-            left: 10px; /* 调整左偏移，使其更居中 */
+            left: 0px; /* 调整左偏移，使其更对称 */
             animation: hammer-move 2s ease-in-out infinite;
         }
         .tool-wrench {
             bottom: -20px;
-            right: 10px; /* 调整右偏移，保持对称 */
+            right: 0px; /* 调整右偏移，保持对称 */
             animation: wrench-rotate 3s linear infinite;
         }
         /* 地面标记 */
         .ground-marks {
             position: absolute;
             bottom: -30px;
-            width: 160px; /* 调整宽度，与父容器匹配 */
+            width: 160px; /* 增加宽度，覆盖整个施工场景 */
             height: 20px;
             display: flex;
             justify-content: space-between;
+            /* 确保地面标记相对于施工标志居中 */
+            left: 50%;
+            transform: translateX(-50%);
         }
         .mark {
             width: 10px;
