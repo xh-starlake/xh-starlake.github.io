@@ -66,6 +66,44 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+        /* 加载动画 - 施工锥效果 */
+        .loading {
+            width: 60px;
+            height: 80px;
+            position: relative;
+            animation: cone-rotate 3s linear infinite;
+        }
+        .cone-base {
+            position: absolute;
+            bottom: 0;
+            left: 10px;
+            width: 40px;
+            height: 15px;
+            background: #e67e22;
+            border-radius: 5px;
+        }
+        .cone-body {
+            position: absolute;
+            bottom: 15px;
+            left: 20px;
+            width: 20px;
+            height: 50px;
+            background: #e74c3c;
+            border-radius: 10px 10px 0 0;
+        }
+        .cone-top {
+            position: absolute;
+            bottom: 65px;
+            left: 25px;
+            width: 10px;
+            height: 10px;
+            background: #f1c40f;
+            border-radius: 50%;
+        }
+        @keyframes cone-rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
     </style>
 </head>
 <body>
@@ -77,7 +115,11 @@
         <div class="maintenance-info">
             <h1 class="maintenance-title">网站施工中🚧</h1>
             <p class="maintenance-message">正在施工中，敬请期待！</p>
-            <div class="loading"></div>
+            <div class="loading">
+                <div class="cone-base"></div>
+                <div class="cone-body"></div>
+                <div class="cone-top"></div>
+            </div>
         </div>
     </div>
 </body>
