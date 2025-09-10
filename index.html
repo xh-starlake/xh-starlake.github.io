@@ -16,16 +16,13 @@
         }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            /* 方法1：添加轻微纹理的暖黄色背景 */
             background-color: #fff9e6;
             background-image: radial-gradient(#ffeb99 1px, transparent 0);
             background-size: 25px 25px;
-            /* 方法2：使用更丰富的渐变 */
-            /* background: linear-gradient(120deg, #fff9e6 0%, #ffe8b3 25%, #fff9e6 50%, #ffe8b3 75%, #fff9e6 100%); */
             color: #34495e;
             line-height: 1.6;
         }
-        /* 添加一个装饰性的施工元素（可选） */
+        /* 添加装饰性的施工元素 */
         body::before {
             content: "🚧";
             position: fixed;
@@ -78,136 +75,85 @@
             color: #7f8c8d;
             margin-bottom: 2rem;
         }
-        /* 加载动画（可选） */
-        .loading {
-            display: inline-block;
-            width: 50px;
-            height: 50px;
-            border: 3px solid #f3f3f3;
-            border-top: 3px solid #3498db;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        /* 加载动画 - 施工锥效果 */
-        .loading {
-            width: 60px;
-            height: 80px;
-            position: relative;
-            animation: cone-rotate 3s linear infinite;
-        }
-        .cone-base {
-            position: absolute;
-            bottom: 0;
-            left: 10px;
-            width: 40px;
-            height: 15px;
-            background: #e67e22;
-            border-radius: 5px;
-        }
-        .cone-body {
-            position: absolute;
-            bottom: 15px;
-            left: 20px;
-            width: 20px;
-            height: 50px;
-            background: #e74c3c;
-            border-radius: 10px 10px 0 0;
-        }
-        .cone-top {
-            position: absolute;
-            bottom: 65px;
-            left: 25px;
-            width: 10px;
-            height: 10px;
-            background: #f1c40f;
-            border-radius: 50%;
-        }
-        @keyframes cone-rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        /* 加载动画 - 施工警示灯 */
-        .loading {
-            width: 60px;
-            height: 100px;
+        /* 新的施工场景动画 */
+        .construction-scene {
+            width: 120px;
+            height: 120px;
             position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
-            /* 移除或注释掉下面这行，停止整个加载区域的旋转 */
-            /* animation: cone-rotate 3s linear infinite; */
         }
-        .warning-light {
-            width: 50px;
-            height: 50px;
-            background: #ff0000;
-            border-radius: 50%;
-            box-shadow: 0 0 20px #ff0000;
-            /* 移除所有动画属性 */
+        /* 施工标志 */
+        .construction-sign {
+            width: 100px;
+            height: 100px;
+            background-color: #e74c3c;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            animation: sign-flash 2s ease-in-out infinite;
         }
-        /* 删除所有相关的@keyframes */
-            /* 可以保留闪烁效果，让灯看起来更生动 */
-            animation: warning-flash 1s ease-in-out infinite;
+        .construction-sign::before {
+            content: "🚧";
+            font-size: 4rem;
         }
-        .warning-pole {
+        /* 锤子和扳手动画 */
+        .tool-hammer,
+        .tool-wrench {
             position: absolute;
+            font-size: 2rem;
+        }
+        .tool-hammer {
+            top: -20px;
+            left: -10px;
+            animation: hammer-move 2s ease-in-out infinite;
+        }
+        .tool-wrench {
+            bottom: -20px;
+            right: -10px;
+            animation: wrench-rotate 3s linear infinite;
+        }
+        /* 地面标记 */
+        .ground-marks {
+            position: absolute;
+            bottom: -30px;
+            width: 140px;
+            height: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .mark {
             width: 10px;
-            height: 40px;
-            background: #333;
-            bottom: 0;
+            height: 10px;
+            background-color: #34495e;
+            border-radius: 50%;
+            animation: mark-blink 1.5s ease-in-out infinite;
         }
-        /* 保留闪烁动画（如果需要） */
-        @keyframes warning-flash {
-            0%, 50%, 100% { opacity: 1; }
-            25%, 75% { opacity: 0.3; }
+        .mark:nth-child(1) { animation-delay: 0s; }
+        .mark:nth-child(2) { animation-delay: 0.3s; }
+        .mark:nth-child(3) { animation-delay: 0.6s; }
+        .mark:nth-child(4) { animation-delay: 0.9s; }
+        .mark:nth-child(5) { animation-delay: 1.2s; }
+        /* 动画定义 */
+        @keyframes sign-flash {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.05); }
         }
-        /* 删除或注释掉旋转动画 */
-        /* @keyframes cone-rotate {
+        @keyframes hammer-move {
+            0%, 100% { transform: rotate(0deg) translateY(0); }
+            50% { transform: rotate(-20deg) translateY(-10px); }
+        }
+        @keyframes wrench-rotate {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
-        } */
-        /* 加载动画 - 路障效果 */
-        .loading {
-            width: 100px;
-            height: 80px;
-            position: relative;
         }
-        .barrier {
-            width: 100%;
-            height: 20px;
-            background: repeating-linear-gradient(
-                45deg,
-                #ff0000,
-                #ff0000 10px,
-                #ffffff 10px,
-                #ffffff 20px
-            );
-            position: absolute;
-            top: 30px;
-            animation: barrier-slide 2s linear infinite;
-        }
-        .barrier::before,
-        .barrier::after {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 40px;
-            background: #333;
-            bottom: -20px;
-        }
-        .barrier::before {
-            left: 10px;
-        }
-        .barrier::after {
-            right: 10px;
-        }
-        @keyframes barrier-slide {
-            0% { background-position: 0 0; }
-            100% { background-position: 40px 0; }
+        @keyframes mark-blink {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
         }
     </style>
 </head>
@@ -220,9 +166,18 @@
         <div class="maintenance-info">
             <h1 class="maintenance-title">网站施工中🚧</h1>
             <p class="maintenance-message">正在施工中，敬请期待！</p>
-            <div class="loading">
-                <div class="warning-light"></div>
-                <div class="warning-pole"></div>
+            <!-- 替换原来的加载动画 -->
+            <div class="construction-scene">
+                <div class="construction-sign"></div>
+                <div class="tool-hammer">🔨</div>
+                <div class="tool-wrench">🔧</div>
+                <div class="ground-marks">
+                    <div class="mark"></div>
+                    <div class="mark"></div>
+                    <div class="mark"></div>
+                    <div class="mark"></div>
+                    <div class="mark"></div>
+                </div>
             </div>
         </div>
     </div>
