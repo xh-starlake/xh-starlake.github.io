@@ -130,6 +130,34 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+        /* 加载动画 - 施工警示灯 */
+        .loading {
+            width: 60px;
+            height: 100px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .warning-light {
+            width: 50px;
+            height: 50px;
+            background: #ff0000;
+            border-radius: 50%;
+            box-shadow: 0 0 20px #ff0000;
+            animation: warning-flash 1s ease-in-out infinite;
+        }
+        .warning-pole {
+            position: absolute;
+            width: 10px;
+            height: 40px;
+            background: #333;
+            bottom: 0;
+        }
+        @keyframes warning-flash {
+            0%, 50%, 100% { opacity: 1; }
+            25%, 75% { opacity: 0.3; }
+        }
         /* 加载动画 - 路障效果 */
         .loading {
             width: 100px;
@@ -181,7 +209,8 @@
             <h1 class="maintenance-title">网站施工中🚧</h1>
             <p class="maintenance-message">正在施工中，敬请期待！</p>
             <div class="loading">
-                <div class="barrier"></div>
+                <div class="warning-light"></div>
+                <div class="warning-pole"></div>
             </div>
         </div>
     </div>
