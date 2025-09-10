@@ -138,6 +138,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            /* 移除或注释掉下面这行，停止整个加载区域的旋转 */
+            /* animation: cone-rotate 3s linear infinite; */
         }
         .warning-light {
             width: 50px;
@@ -145,6 +147,7 @@
             background: #ff0000;
             border-radius: 50%;
             box-shadow: 0 0 20px #ff0000;
+            /* 可以保留闪烁效果，让灯看起来更生动 */
             animation: warning-flash 1s ease-in-out infinite;
         }
         .warning-pole {
@@ -154,10 +157,16 @@
             background: #333;
             bottom: 0;
         }
+        /* 保留闪烁动画（如果需要） */
         @keyframes warning-flash {
             0%, 50%, 100% { opacity: 1; }
             25%, 75% { opacity: 0.3; }
         }
+        /* 删除或注释掉旋转动画 */
+        /* @keyframes cone-rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        } */
         /* 加载动画 - 路障效果 */
         .loading {
             width: 100px;
