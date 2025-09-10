@@ -130,6 +130,45 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+        /* 加载动画 - 路障效果 */
+        .loading {
+            width: 100px;
+            height: 80px;
+            position: relative;
+        }
+        .barrier {
+            width: 100%;
+            height: 20px;
+            background: repeating-linear-gradient(
+                45deg,
+                #ff0000,
+                #ff0000 10px,
+                #ffffff 10px,
+                #ffffff 20px
+            );
+            position: absolute;
+            top: 30px;
+            animation: barrier-slide 2s linear infinite;
+        }
+        .barrier::before,
+        .barrier::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 40px;
+            background: #333;
+            bottom: -20px;
+        }
+        .barrier::before {
+            left: 10px;
+        }
+        .barrier::after {
+            right: 10px;
+        }
+        @keyframes barrier-slide {
+            0% { background-position: 0 0; }
+            100% { background-position: 40px 0; }
+        }
     </style>
 </head>
 <body>
@@ -142,9 +181,7 @@
             <h1 class="maintenance-title">网站施工中🚧</h1>
             <p class="maintenance-message">正在施工中，敬请期待！</p>
             <div class="loading">
-                <div class="cone-base"></div>
-                <div class="cone-body"></div>
-                <div class="cone-top"></div>
+                <div class="barrier"></div>
             </div>
         </div>
     </div>
