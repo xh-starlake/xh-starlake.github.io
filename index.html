@@ -1,190 +1,225 @@
-<!DOCTYPE html>
-<html lang="zh-CN" data-theme="light">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>网站施工中 | 星湖</title>
-    <meta name="description" content="正在施工中，敬请期待！">
-    <link rel="shortcut icon" href="https://fxy-tuc.oss-cn-beijing.aliyuncs.com/mc/website/IMG_4172.png">
-    <style>
-        /* 基础样式重置 */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>光之旋律 - Light Rhythm</title><meta name="author" content="Light Rhythm"><meta name="copyright" content="Light Rhythm"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "光之旋律",
+  "alternateName": [
+    "Light Rhythm",
+    "39.105.168.193"
+  ],
+  "url": "http://39.105.168.193/"
+}</script><link rel="shortcut icon" href="https://github.com/xh-starlake/picx-images-hosting/raw/master/favicon.8l0fwf4wsy.webp"><link rel="canonical" href="http://39.105.168.193/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
         }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            background-color: #fff9e6;
-            background-image: radial-gradient(#ffeb99 1px, transparent 0);
-            background-size: 25px 25px;
-            color: #34495e;
-            line-height: 1.6;
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
         }
-        /* 添加装饰性的施工元素 */
-        body::before {
-            content: "🚧";
-            position: fixed;
-            font-size: 8rem;
-            opacity: 0.05;
-            top: 20%;
-            left: 10%;
-            transform: rotate(-15deg);
-            z-index: -1;
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
         }
-        body::after {
-            content: "🏗️";
-            position: fixed;
-            font-size: 8rem;
-            opacity: 0.05;
-            bottom: 20%;
-            right: 10%;
-            transform: rotate(15deg);
-            z-index: -1;
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
         }
-        /* 维护页面容器 */
-        .maintenance-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            padding: 2rem;
-            text-align: center;
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'undefined')
         }
-        /* 网站标题 */
-        .site-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #2c3e50;
-            margin-bottom: 1rem;
-            text-decoration: none;
-        }
-        /* 维护信息 */
-        .maintenance-info {
-            max-width: 600px;
-            /* 确保内容居中 */
-            margin: 0 auto;
-            text-align: center;
-        }
-        .maintenance-title {
-            font-size: 2rem;
-            color: #e74c3c;
-            margin-bottom: 1rem;
-        }
-        .maintenance-message {
-            font-size: 1.1rem;
-            color: #7f8c8d;
-            margin-bottom: 2rem;
-        }
-        /* 新的施工场景动画 */
-        .construction-scene {
-            /* 移除固定宽度，让它根据内容自适应 */
-            display: inline-block;
-            position: relative;
-            /* 确保施工场景在文字下方居中 */
-            margin: 0 auto;
-        }
-        /* 施工标志 */
-        .construction-sign {
-            width: 100px;
-            height: 100px;
-            background-color: #e74c3c;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            animation: sign-flash 2s ease-in-out infinite;
-        }
-        .construction-sign::before {
-            content: "🚧";
-            font-size: 4rem;
-        }
-        /* 锤子和扳手动画 */
-        .tool-hammer,
-        .tool-wrench {
-            position: absolute;
-            font-size: 2rem;
-        }
-        .tool-hammer {
-            top: -20px;
-            left: 0px; /* 调整左偏移，使其更对称 */
-            animation: hammer-move 2s ease-in-out infinite;
-        }
-        .tool-wrench {
-            bottom: -20px;
-            right: 0px; /* 调整右偏移，保持对称 */
-            animation: wrench-rotate 3s linear infinite;
-        }
-        /* 地面标记 */
-        .ground-marks {
-            position: absolute;
-            bottom: -30px;
-            width: 160px; /* 增加宽度，覆盖整个施工场景 */
-            height: 20px;
-            display: flex;
-            justify-content: space-between;
-            /* 确保地面标记相对于施工标志居中 */
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        .mark {
-            width: 10px;
-            height: 10px;
-            background-color: #34495e;
-            border-radius: 50%;
-            animation: mark-blink 1.5s ease-in-out infinite;
-        }
-        .mark:nth-child(1) { animation-delay: 0s; }
-        .mark:nth-child(2) { animation-delay: 0.3s; }
-        .mark:nth-child(3) { animation-delay: 0.6s; }
-        .mark:nth-child(4) { animation-delay: 0.9s; }
-        .mark:nth-child(5) { animation-delay: 1.2s; }
-        /* 动画定义 */
-        @keyframes sign-flash {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.8; transform: scale(1.05); }
-        }
-        @keyframes hammer-move {
-            0%, 100% { transform: rotate(0deg) translateY(0); }
-            50% { transform: rotate(-20deg) translateY(-10px); }
-        }
-        @keyframes wrench-rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        @keyframes mark-blink {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 1; }
-        }
-    </style>
-</head>
-<body>
-    <div class="maintenance-container">
-        <!-- 网站logo/标题 -->
-        <a href="/" class="site-title">星湖 Minecraft 服务器</a>
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
         
-        <!-- 维护信息区域 -->
-        <div class="maintenance-info">
-            <h1 class="maintenance-title">网站施工中🚧</h1>
-            <p class="maintenance-message">正在施工中，敬请期待！</p>
-            <!-- 替换原来的加载动画 -->
-            <div class="construction-scene">
-                <div class="construction-sign"></div>
-                <div class="tool-hammer">🔨</div>
-                <div class="tool-wrench">🔧</div>
-                <div class="ground-marks">
-                    <div class="mark"></div>
-                    <div class="mark"></div>
-                    <div class="mark"></div>
-                    <div class="mark"></div>
-                    <div class="mark"></div>
-                </div>
-            </div>
-        </div>
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '光之旋律',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'home'
+}</script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="光之旋律" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://github.com/xh-starlake/picx-images-hosting/raw/master/favicon.8l0fwf4wsy.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">7</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-scroll"></i><span> 文章</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url(https://github.com/xh-starlake/picx-images-hosting/raw/master/2025-09-10_23.46.58.2a5g8ydyww.webp);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">光之旋律</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-scroll"></i><span> 文章</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="site-info"><h1 id="site-title">光之旋律</h1><div id="site-subtitle"><span id="subtitle"></span></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="post_cover left"><a href="/2025/09/19/4ZM-Start/" title="星湖一周目测试版来了！"><img class="post-bg" src="https://fxy-tuc.oss-cn-beijing.aliyuncs.com/mc/%E4%B8%89%E5%91%A8%E7%9B%AE/3ZM02.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="星湖一周目测试版来了！"></a></div><div class="recent-post-info"><a class="article-title" href="/2025/09/19/4ZM-Start/" title="星湖一周目测试版来了！">星湖一周目测试版来了！</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-09-18T18:00:00.000Z" title="发表于 2025-09-19 02:00:00">2025-09-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%85%AC%E5%91%8A/">公告</a></span></div><div class="content">星湖一周目测试版来了！开启日期：2025年9月20日经过几天的内部测试，已对目前发现的大部分问题进行整理修复，并添加了更多的玩法模组。现在，星湖一周目测试版开启！ 服务器模组：冰火传说-Ice And Fire 更好的下界-Better Nether 末地拓展-The Endergetic Expansion 超多生物群系-Biomes O&#39; Plenty 神秘遗物-Enigmatic Legacy 地牢浮现之时-Dungeons Arise 海灵物语-Aquamirae 农夫乐事-Farmer&#39;s Delight 暮色森林-The Twilight Forest 夜眠梦境-Good Nights Sleep 拔刀剑-Slash Blade 永恒枪械工坊-Timeless and Classics Guns 等...  测试奖励：对参与本次测试的玩家提供以下奖励：    称号“幻境之旅”  感谢各位的等待！感谢加入星湖服务器！      </div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2022/01/21/3ZM-XNJKB/" title="光之旋律·新年集矿币·活动"><img class="post-bg" src="https://fxy-tuc.oss-cn-beijing.aliyuncs.com/mc/%E4%B8%89%E5%91%A8%E7%9B%AE/XNJKB01.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="光之旋律·新年集矿币·活动"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/01/21/3ZM-XNJKB/" title="光之旋律·新年集矿币·活动">光之旋律·新年集矿币·活动</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-01-21T04:00:00.000Z" title="发表于 2022-01-21 12:00:00">2022-01-21</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%B4%BB%E5%8A%A8/">活动</a></span></div><div class="content">光之旋律·新年集矿币·活动光之旋律三周目开启以来的第一个活动开始了！新年新气象，矿币合新裳！同时集齐“煤炭币”、“铁锭币”、“金锭币”、“钻石币”、“绿宝石币”可获得三周目永久粒子效果！ 活动时间：2022.1.21-2022.2.1矿币的获取方式：矿币宝藏：每天（游戏内时间）会生成一种宝藏，开启宝藏可随机获得矿币、经验、金钱，不同的宝藏矿币概率、经验金钱数额不同。 拍卖行：每天（现实时间）不定时进行矿币拍卖，出价最高者可得相应矿币。 新年矿币箱：通过特定钥匙在新年矿币箱内抽取矿币。 万能币：可兑换为任意矿币。  更多方法即将开启...  新年集矿币活动奖励：集齐3枚不同的矿币：    金币1500    经验300 集齐4枚不同的矿币：    金币1500+1500    经验300+300    称号“虎虎生威” 集齐5枚不同的矿币：    金币1500+1500+3000    经验300+300+600    称号“虎虎生威”    三周目永久粒子效果“附魔” 集齐5套5枚不同的矿币：    额外获得·称号“自定义称号”    额外获得·三周目永久粒子效果“生气”(以上奖...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2022/01/15/3ZM-Start/" title="光之旋律三周目来了！"><img class="post-bg" src="https://fxy-tuc.oss-cn-beijing.aliyuncs.com/mc/%E4%B8%89%E5%91%A8%E7%9B%AE/3ZM02.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="光之旋律三周目来了！"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/01/15/3ZM-Start/" title="光之旋律三周目来了！">光之旋律三周目来了！</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-01-14T18:00:00.000Z" title="发表于 2022-01-15 02:00:00">2022-01-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%85%AC%E5%91%8A/">公告</a></span></div><div class="content">光之旋律三周目来了！开启日期：2022年1月16日晚18:00经过几天的测试，已对目前发现的大部分问题进行整理修复，并添加了更多的玩法模组。现在，光之旋律3周目正式服正式开启！ 服务器模组：冰火传说-Ice And Fire 机械动力-Create 吸血鬼-Vampirism 通用机械-Mekanism Alex生物-Alex Mobs 更好的下界-Better Nether 更好的末地-Better End 超多生物群系-Biomes O&#39; Plenty 神秘遗物-Enigmatic Legacy 星辉魔法-Astral Sorcery 地牢浮现之时-Dungeons Arise 等...  其他改动：飞龙骑行速度由0.5提升至0.7 领地价格由0.5降低至0.25 新增“旋律菜单”系统  测试奖励：对之前参与测试的玩家提供以下奖励：    称号“异境旅人” x15天    初月钥匙 x9测试延长补偿奖励：    金币 x3000    初月钥匙 x9    补签卡 x3 感谢各位的等待！感谢加入光之旋律服务器！      </div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2022/01/09/3ZMCSHD/" title="光之旋律三周目即将开测！[2022.1.11]"><img class="post-bg" src="https://fxy-tuc.oss-cn-beijing.aliyuncs.com/mc/website/ZM3TEST1.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="光之旋律三周目即将开测！[2022.1.11]"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/01/09/3ZMCSHD/" title="光之旋律三周目即将开测！[2022.1.11]">光之旋律三周目即将开测！[2022.1.11]</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-01-09T12:00:00.000Z" title="发表于 2022-01-09 20:00:00">2022-01-09</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%B4%BB%E5%8A%A8/">活动</a></span></div><div class="content">光之旋律III周目测试活动光之旋律三周目它来了！它带着全新的体验来了！在全新的1.16.5版本下制作全新的服务器释放全新的快乐！ 服务器模组：超多生物群系星辉魔法等… 光之旋律三周目预计在2022年1月11日下午开启删档测试预计测试2天 凡参与此次测试的玩家可在正式开服时获得以下奖励：奖励 称号&quot;异境旅人&quot; *15天 初月箱钥匙 *9把  感谢加入光之旋律服务器！ </div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2022/01/09/ZM2/" title="光之旋律二周目[2020.11.13-2021.3.28]"><img class="post-bg" src="https://fxy-tuc.oss-cn-beijing.aliyuncs.com/mc/website/ZM2.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="光之旋律二周目[2020.11.13-2021.3.28]"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/01/09/ZM2/" title="光之旋律二周目[2020.11.13-2021.3.28]">光之旋律二周目[2020.11.13-2021.3.28]</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-01-09T11:00:00.000Z" title="发表于 2022-01-09 19:00:00">2022-01-09</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%91%A8%E7%9B%AE%E4%BB%8B%E7%BB%8D/">周目介绍</a></span></div><div class="content">感谢加入光之旋律服务器光之旋律2周目是魔力拉满的一个周目，给玩家带来绝妙体验！ 服务器模组：匠魂2星辉魔法林业拔刀剑等… 今后我们会继续努力，为玩家带来一个良好新颖的游戏环境！感谢各位的陪伴！ </div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/2022/01/09/ZM1/" title="光之旋律一周目[2020.7.4-2020.10.31]"><img class="post-bg" src="https://fxy-tuc.oss-cn-beijing.aliyuncs.com/mc/website/ZM1.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="光之旋律一周目[2020.7.4-2020.10.31]"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/01/09/ZM1/" title="光之旋律一周目[2020.7.4-2020.10.31]">光之旋律一周目[2020.7.4-2020.10.31]</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-01-09T08:00:00.000Z" title="发表于 2022-01-09 16:00:00">2022-01-09</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%91%A8%E7%9B%AE%E4%BB%8B%E7%BB%8D/">周目介绍</a></span></div><div class="content">感谢加入光之旋律服务器经过测试周目将近3个月的磨炼，我们带着全新的周目来了！此周目主打探险刷怪，给玩家不一样的冒险体验！ 服务器模组：匠魂2暮色森林拔刀剑更好的下界等… 今后我们会继续努力，为玩家带来一个良好新颖的游戏环境！谢谢你的喜欢！ </div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/2022/01/08/ZM0/" title="光之旋律测试周目[2020.4.28-2020.6.30]"><img class="post-bg" src="https://fxy-tuc.oss-cn-beijing.aliyuncs.com/mc/website/ZM0.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="光之旋律测试周目[2020.4.28-2020.6.30]"></a></div><div class="recent-post-info"><a class="article-title" href="/2022/01/08/ZM0/" title="光之旋律测试周目[2020.4.28-2020.6.30]">光之旋律测试周目[2020.4.28-2020.6.30]</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-01-08T08:00:00.000Z" title="发表于 2022-01-08 16:00:00">2022-01-08</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%91%A8%E7%9B%AE%E4%BB%8B%E7%BB%8D/">周目介绍</a></span></div><div class="content">感谢加入光之旋律服务器测试周目为光之旋律时隔3年后重新开始的试运行周目此周目主要是对玩家热情以及我们的服务能力进行评估 服务器模组：工业2红石计划樱应用能源建筑BC等… 今后我们会继续努力，为玩家带来一个良好新颖的游戏环境！那么~请多多关照！ </div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://github.com/xh-starlake/picx-images-hosting/raw/master/favicon.8l0fwf4wsy.webp" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Light Rhythm</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">7</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://jq.qq.com/?_wv=1027&amp;k=Rn5lsMd3"><i class="fab fa-qq"></i><span>点击加入QQ群</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">星湖一周目已经开启，加群获取客户端哦。</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/09/19/4ZM-Start/" title="星湖一周目测试版来了！"><img src="https://fxy-tuc.oss-cn-beijing.aliyuncs.com/mc/%E4%B8%89%E5%91%A8%E7%9B%AE/3ZM02.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="星湖一周目测试版来了！"/></a><div class="content"><a class="title" href="/2025/09/19/4ZM-Start/" title="星湖一周目测试版来了！">星湖一周目测试版来了！</a><time datetime="2025-09-18T18:00:00.000Z" title="发表于 2025-09-19 02:00:00">2025-09-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/01/21/3ZM-XNJKB/" title="光之旋律·新年集矿币·活动"><img src="https://fxy-tuc.oss-cn-beijing.aliyuncs.com/mc/%E4%B8%89%E5%91%A8%E7%9B%AE/XNJKB01.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="光之旋律·新年集矿币·活动"/></a><div class="content"><a class="title" href="/2022/01/21/3ZM-XNJKB/" title="光之旋律·新年集矿币·活动">光之旋律·新年集矿币·活动</a><time datetime="2022-01-21T04:00:00.000Z" title="发表于 2022-01-21 12:00:00">2022-01-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/01/15/3ZM-Start/" title="光之旋律三周目来了！"><img src="https://fxy-tuc.oss-cn-beijing.aliyuncs.com/mc/%E4%B8%89%E5%91%A8%E7%9B%AE/3ZM02.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="光之旋律三周目来了！"/></a><div class="content"><a class="title" href="/2022/01/15/3ZM-Start/" title="光之旋律三周目来了！">光之旋律三周目来了！</a><time datetime="2022-01-14T18:00:00.000Z" title="发表于 2022-01-15 02:00:00">2022-01-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/01/09/3ZMCSHD/" title="光之旋律三周目即将开测！[2022.1.11]"><img src="https://fxy-tuc.oss-cn-beijing.aliyuncs.com/mc/website/ZM3TEST1.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="光之旋律三周目即将开测！[2022.1.11]"/></a><div class="content"><a class="title" href="/2022/01/09/3ZMCSHD/" title="光之旋律三周目即将开测！[2022.1.11]">光之旋律三周目即将开测！[2022.1.11]</a><time datetime="2022-01-09T12:00:00.000Z" title="发表于 2022-01-09 20:00:00">2022-01-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/01/09/ZM2/" title="光之旋律二周目[2020.11.13-2021.3.28]"><img src="https://fxy-tuc.oss-cn-beijing.aliyuncs.com/mc/website/ZM2.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="光之旋律二周目[2020.11.13-2021.3.28]"/></a><div class="content"><a class="title" href="/2022/01/09/ZM2/" title="光之旋律二周目[2020.11.13-2021.3.28]">光之旋律二周目[2020.11.13-2021.3.28]</a><time datetime="2022-01-09T11:00:00.000Z" title="发表于 2022-01-09 19:00:00">2022-01-09</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            
+          </div>
+          <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%85%AC%E5%91%8A/"><span class="card-category-list-name">公告</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%91%A8%E7%9B%AE%E4%BB%8B%E7%BB%8D/"><span class="card-category-list-name">周目介绍</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%B4%BB%E5%8A%A8/"><span class="card-category-list-name">活动</span><span class="card-category-list-count">2</span></a></li>
+          </ul></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>归档</span>
+      
     </div>
-</body>
-</html>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/09/">
+            <span class="card-archive-list-date">
+              九月 2025
+            </span>
+            <span class="card-archive-list-count">1</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2022/01/">
+            <span class="card-archive-list-date">
+              一月 2022
+            </span>
+            <span class="card-archive-list-count">6</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">7</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-09-18T13:54:02.993Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2012 - 2025 By Light Rhythm</span></div><div class="footer_custom_text">感谢浏览本页！</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script>window.typedJSFn = {
+  init: str => {
+    window.typed = new Typed('#subtitle', Object.assign({
+      strings: str,
+      startDelay: 300,
+      typeSpeed: 150,
+      loop: true,
+      backSpeed: 50,
+    }, null))
+  },
+  run: subtitleType => {
+    if (true) {
+      if (typeof Typed === 'function') {
+        subtitleType()
+      } else {
+        btf.getScript('https://cdn.jsdelivr.net/npm/typed.js/dist/typed.umd.min.js').then(subtitleType)
+      }
+    } else {
+      subtitleType()
+    }
+  },
+  processSubtitle: (content, extraContents = []) => {
+    if (true) {
+      const sub = ["一个纯纯公益MC服务器","快上号快上号！","暴打腐竹，需要你的参与"].slice()
+
+      if (extraContents.length > 0) {
+        sub.unshift(...extraContents)
+      }
+
+      if (typeof content === 'string') {
+        sub.unshift(content)
+      } else if (Array.isArray(content)) {
+        sub.unshift(...content)
+      }
+
+      sub.length > 0 && typedJSFn.init(sub)
+    } else {
+      document.getElementById('subtitle').textContent = typeof content === 'string' ? content :
+        (Array.isArray(content) && content.length > 0 ? content[0] : '')
+    }
+  }
+}
+btf.addGlobalFn('pjaxSendOnce', () => { typed.destroy() }, 'typedDestroy')
+</script><script>function subtitleType () {
+  typedJSFn.processSubtitle(["一个纯纯公益MC服务器","快上号快上号！","暴打腐竹，需要你的参与"])
+}
+typedJSFn.run(subtitleType)</script></div><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
