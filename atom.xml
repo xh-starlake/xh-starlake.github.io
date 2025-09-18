@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>光之旋律</title>
+  <title>星湖</title>
   
-  <subtitle>Light Rhythm</subtitle>
+  <subtitle>Star Lake</subtitle>
   <link href="http://39.105.168.193/atom.xml" rel="self"/>
   
   <link href="http://39.105.168.193/"/>
-  <updated>2025-09-18T07:42:08.681Z</updated>
+  <updated>2025-09-18T13:55:58.966Z</updated>
   <id>http://39.105.168.193/</id>
   
   <author>
-    <name>Light Rhythm</name>
+    <name>Star Lake</name>
     
   </author>
   
@@ -21,7 +21,7 @@
     <link href="http://39.105.168.193/2025/09/19/4ZM-Start/"/>
     <id>http://39.105.168.193/2025/09/19/4ZM-Start/</id>
     <published>2025-09-18T18:00:00.000Z</published>
-    <updated>2025-09-18T07:42:08.681Z</updated>
+    <updated>2025-09-18T13:55:58.966Z</updated>
     
     <content type="html"><![CDATA[<h1 id="星湖一周目测试版来了！"><a href="#星湖一周目测试版来了！" class="headerlink" title="星湖一周目测试版来了！"></a>星湖一周目测试版来了！</h1><h2 id="开启日期：2025年9月20日"><a href="#开启日期：2025年9月20日" class="headerlink" title="开启日期：2025年9月20日"></a>开启日期：2025年9月20日</h2><p>经过几天的内部测试，已对目前发现的大部分问题进行整理修复，并添加了更多的玩法模组。<br>现在，星湖一周目测试版开启！</p><h3 id="服务器模组："><a href="#服务器模组：" class="headerlink" title="服务器模组："></a>服务器模组：</h3><pre><code>冰火传说-Ice And Fire更好的下界-Better Nether末地拓展-The Endergetic Expansion超多生物群系-Biomes O&#39; Plenty神秘遗物-Enigmatic Legacy地牢浮现之时-Dungeons Arise海灵物语-Aquamirae农夫乐事-Farmer&#39;s Delight暮色森林-The Twilight Forest夜眠梦境-Good Nights Sleep拔刀剑-Slash Blade永恒枪械工坊-Timeless and Classics Guns等...</code></pre><h3 id="测试奖励："><a href="#测试奖励：" class="headerlink" title="测试奖励："></a>测试奖励：</h3><p>对参与本次测试的玩家提供以下奖励：<br>    称号“幻境之旅” </p><p>感谢各位的等待！<br>感谢加入星湖服务器！    </p>]]></content>
     
